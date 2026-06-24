@@ -59,3 +59,19 @@ Porque evolução em tecnologia não acontece do dia para a noite.
 Este repositório representa constância, disciplina e acompanhamento de progresso. Pequenos registros diários ajudam a visualizar a caminhada, manter o foco e reforçar o hábito de continuar aprendendo.
 
 ## Autor
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/TeuzLins">
+        <img style="border-radius: 50%;" src="https://github.com/TeuzLins.png" width="100px;" alt="Teuz Lins"/>
+        <br />
+        <sub><b>Teuz Lins</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/russo313" title="Rocketseat">Backend Developer</a>
+    </td>
+  </tr>
+</table>
+
+<div align="center">
