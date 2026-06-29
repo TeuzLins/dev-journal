@@ -13,3 +13,6 @@
 ## 28/06/2026
 - Registro diário de estudos, projetos e evolução como dev.
 
+## 29/06/2026
+- Registro diário de estudos, projetos e evolução como dev.
+
