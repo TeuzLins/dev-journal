@@ -2,7 +2,7 @@ name: Daily Dev Log
 
 on:
   schedule:
-    - cron: "17 12 * * *" # todo dia 09:17 no horário de Brasília
+    - cron: "17 12 * * *"
   workflow_dispatch:
 
 permissions:
@@ -18,13 +18,23 @@ jobs:
 
       - name: Atualizar log diário
         run: |
-          echo "## $(TZ=America/Sao_Paulo date '+%d/%m/%Y')" >> dev-log.md
-          echo "- Registro diário de estudos, projetos e evolução como dev." >> dev-log.md
-          echo "" >> dev-log.md
+          DATA=$(TZ=America/Sao_Paulo date +'%d/%m/%Y')
 
-          git config user.name "Teuz"
-          git config user.email "seutamamil@gmail.com"
+          if grep -q "## $DATA" dev-log.md; then
+            echo "Log de hoje já existe."
+            exit 0
+          fi
+
+          {
+            echo ""
+            echo "## $DATA"
+            echo ""
+            echo "- Registro diário de estudos, projetos e evolução como dev."
+          } >> dev-log.md
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add dev-log.md
-          git commit -m "chore: atualiza dev-log diário" || echo "Nada para commitar"
+          git commit -m "chore: atualiza dev-log diário"
           git push
