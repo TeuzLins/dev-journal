@@ -1,10 +1,39 @@
+<div align="center">
+
+<img src="./assets/banner.svg" alt="Dev Journal" width="100%" />
+
 # 📘 Dev Journal
 
-Um diário de desenvolvimento para registrar estudos, projetos, desafios e aprendizados reais de forma organizada.
+Um diário de desenvolvimento para registrar **estudos, projetos, desafios e aprendizados reais** de forma organizada.
+
+<br/>
+
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![Python](https://img.shields.io/badge/Python%203-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+
+![Status](https://img.shields.io/badge/status-ativo-brightgreen?style=flat-square)
+![Entradas](https://img.shields.io/badge/entradas-mensais-blue?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-lightgrey?style=flat-square)
+
+</div>
+
+---
 
 A ideia deste repositório é facilitar o hábito de documentar a evolução como desenvolvedor. As entradas são criadas por um workflow manual do GitHub Actions e salvas automaticamente em arquivos mensais dentro da pasta `journal/`.
 
-> Este projeto automatiza somente a formatação e o armazenamento dos registros. Cada entrada representa uma atividade realmente realizada.
+Este projeto automatiza **somente a formatação e o armazenamento** dos registros. Cada entrada representa uma atividade realmente realizada.
+
+## 📑 Índice
+
+- [✨ Funcionalidades](#-funcionalidades)
+- [🚀 Como registrar uma atividade](#-como-registrar-uma-atividade)
+- [📝 Exemplo de entrada](#-exemplo-de-entrada)
+- [🗂️ Estrutura](#️-estrutura)
+- [🛠️ Tecnologias](#️-tecnologias)
+- [🎯 Objetivo](#-objetivo)
+- [👤 Autor](#-autor)
 
 ## ✨ Funcionalidades
 
@@ -25,7 +54,7 @@ A ideia deste repositório é facilitar o hábito de documentar a evolução com
 
 A entrada será adicionada em um arquivo no formato:
 
-```text
+```
 journal/2026-08.md
 ```
 
@@ -43,11 +72,13 @@ journal/2026-08.md
 
 ## 🗂️ Estrutura
 
-```text
+```
 .
 ├── .github/
 │   └── workflows/
 │       └── add-entry.yml
+├── assets/
+│   └── banner.svg
 ├── journal/
 │   └── README.md
 ├── scripts/
@@ -57,10 +88,10 @@ journal/2026-08.md
 
 ## 🛠️ Tecnologias
 
-- GitHub Actions
-- Python 3
-- Git
-- Markdown
+- **GitHub Actions**
+- **Python 3**
+- **Git**
+- **Markdown**
 
 ## 🎯 Objetivo
 
@@ -68,4 +99,12 @@ Criar um histórico verdadeiro da evolução técnica, facilitando revisões, or
 
 ## 👤 Autor
 
-Desenvolvido por [TeuzLins](https://github.com/TeuzLins).
+Desenvolvido por [**TeuzLins**](https://github.com/TeuzLins).
+
+<div align="center">
+
+<br/>
+
+⭐ Se este projeto te ajudou a manter o hábito de estudar, deixe uma estrela!
+
+</div>
