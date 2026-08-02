@@ -1,0 +1,59 @@
+name: Registrar atividade no Dev Journal
+
+on:
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "Assunto estudado ou trabalhado"
+        required: true
+        type: string
+      summary:
+        description: "O que foi feito"
+        required: true
+        type: string
+      learning:
+        description: "Principal aprendizado"
+        required: true
+        type: string
+      next_step:
+        description: "Próximo passo"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  register-entry:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Gerar entrada
+        env:
+          TOPIC: ${{ inputs.topic }}
+          SUMMARY: ${{ inputs.summary }}
+          LEARNING: ${{ inputs.learning }}
+          NEXT_STEP: ${{ inputs.next_step }}
+        run: python scripts/add_entry.py
+
+      - name: Salvar entrada no repositório
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add journal/
+
+          if git diff --cached --quiet; then
+            echo "Nenhuma alteração para registrar."
+            exit 0
+          fi
+
+          git commit -m "docs(journal): registrar atividade de desenvolvimento"
+          git push
