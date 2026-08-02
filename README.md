@@ -2,9 +2,9 @@
 
 <img src="./assets/banner.svg" alt="Dev Journal" width="100%" />
 
-# 📘 Dev Journal
+# Dev Journal
 
-Um diário de desenvolvimento para registrar **estudos, projetos, desafios e aprendizados reais** de forma organizada.
+Diário de desenvolvimento para registrar estudos, projetos, desafios e aprendizados reais de forma organizada.
 
 <br/>
 
@@ -21,30 +21,32 @@ Um diário de desenvolvimento para registrar **estudos, projetos, desafios e apr
 
 ---
 
-A ideia deste repositório é facilitar o hábito de documentar a evolução como desenvolvedor. As entradas são criadas por um workflow manual do GitHub Actions e salvas automaticamente em arquivos mensais dentro da pasta `journal/`.
+## Sobre
 
-Este projeto automatiza **somente a formatação e o armazenamento** dos registros. Cada entrada representa uma atividade realmente realizada.
+A proposta deste repositório é facilitar o hábito de documentar a evolução como desenvolvedor. As entradas são criadas por um workflow manual do GitHub Actions e salvas automaticamente em arquivos mensais dentro da pasta `journal/`.
 
-## 📑 Índice
+O projeto automatiza somente a formatação e o armazenamento dos registros. Cada entrada representa uma atividade realmente realizada.
 
-- [✨ Funcionalidades](#-funcionalidades)
-- [🚀 Como registrar uma atividade](#-como-registrar-uma-atividade)
-- [📝 Exemplo de entrada](#-exemplo-de-entrada)
-- [🗂️ Estrutura](#️-estrutura)
-- [🛠️ Tecnologias](#️-tecnologias)
-- [🎯 Objetivo](#-objetivo)
-- [👤 Autor](#-autor)
+## Índice
 
-## ✨ Funcionalidades
+- [Funcionalidades](#funcionalidades)
+- [Como registrar uma atividade](#como-registrar-uma-atividade)
+- [Exemplo de entrada](#exemplo-de-entrada)
+- [Estrutura](#estrutura)
+- [Tecnologias](#tecnologias)
+- [Objetivo](#objetivo)
+- [Autor](#autor)
 
-- Registro manual pela aba **Actions**
+## Funcionalidades
+
+- Registro manual pela aba Actions
 - Organização automática por mês
 - Histórico em arquivos Markdown
 - Campos para assunto, resumo, aprendizado e próximo passo
 - Validação básica dos dados
 - Commit automático apenas quando uma entrada real é enviada
 
-## 🚀 Como registrar uma atividade
+## Como registrar uma atividade
 
 1. Abra a aba **Actions** do repositório.
 2. Selecione **Registrar atividade no Dev Journal**.
@@ -58,7 +60,7 @@ A entrada será adicionada em um arquivo no formato:
 journal/2026-08.md
 ```
 
-## 📝 Exemplo de entrada
+## Exemplo de entrada
 
 ```markdown
 ## 01/08/2026 — ASP.NET Core
@@ -70,7 +72,7 @@ journal/2026-08.md
 **Próximo passo:** Criar testes de integração para o fluxo de login.
 ```
 
-## 🗂️ Estrutura
+## Estrutura
 
 ```
 .
@@ -86,25 +88,32 @@ journal/2026-08.md
 └── README.md
 ```
 
-## 🛠️ Tecnologias
+## Tecnologias
 
-- **GitHub Actions**
-- **Python 3**
-- **Git**
-- **Markdown**
+- GitHub Actions
+- Python 3
+- Git
+- Markdown
 
-## 🎯 Objetivo
+## Objetivo
 
-Criar um histórico verdadeiro da evolução técnica, facilitando revisões, organização dos estudos e apresentação do progresso em projetos.
+Criar um histórico verdadeiro da evolução técnica, facilitando revisões, organização dos estudos e a apresentação do progresso em projetos.
 
-## 👤 Autor
+## Autor <a name="autor"></a>
 
-Desenvolvido por [**TeuzLins**](https://github.com/TeuzLins).
+- **Mateus de Lima Lins Prestes**
+- Desenvolvedor Back-end / Full Stack
+- GitHub: https://github.com/TeuzLins
+- LinkedIn: https://www.linkedin.com/in/mateus-de-lima-lins-prestes-304a812b7/
 
-<div align="center">
-
-<br/>
-
-⭐ Se este projeto te ajudou a manter o hábito de estudar, deixe uma estrela!
-
-</div>
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/TeuzLins">
+        <img style="border-radius: 50%;" src="https://github.com/TeuzLins.png" width="100px;" alt="Mateus de Lima Lins Prestes"/><br />
+        <sub><b>Teuz Lins</b></sub>
+      </a><br />
+      <sub>Back-end Developer</sub>
+    </td>
+  </tr>
+</table>
