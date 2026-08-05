@@ -2,11 +2,12 @@ from __future__ import annotations
 
 import os
 import re
-from datetime import datetime, timezone, timedelta
+from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 
-BRT = timezone(timedelta(hours=-3))
+BRASILIA = ZoneInfo("America/Sao_Paulo")
 
 
 def required_env(name: str) -> str:
@@ -16,17 +17,24 @@ def required_env(name: str) -> str:
     return value
 
 
-def sanitize_single_line(value: str) -> str:
+def single_line(value: str) -> str:
     return re.sub(r"\s+", " ", value).strip()
 
 
-def main() -> None:
-    topic = sanitize_single_line(required_env("TOPIC"))
-    summary = required_env("SUMMARY")
-    learning = required_env("LEARNING")
-    next_step = os.getenv("NEXT_STEP", "").strip() or "Não definido."
+def set_github_output(name: str, value: str) -> None:
+    output_path = os.getenv("GITHUB_OUTPUT")
+    if not output_path:
+        return
 
-    now = datetime.now(BRT)
+    with Path(output_path).open("a", encoding="utf-8") as output_file:
+        output_file.write(f"{name}={value}\n")
+
+
+def main() -> None:
+    activity_type = single_line(required_env("ACTIVITY_TYPE"))
+    details = single_line(os.getenv("DETAILS", ""))
+
+    now = datetime.now(BRASILIA)
     journal_dir = Path("journal")
     journal_dir.mkdir(parents=True, exist_ok=True)
 
@@ -37,18 +45,24 @@ def main() -> None:
             encoding="utf-8",
         )
 
-    entry = (
-        f"## {now:%d/%m/%Y} — {topic}\n\n"
-        f"**Resumo:** {summary.strip()}\n\n"
-        f"**Aprendizado:** {learning.strip()}\n\n"
-        f"**Próximo passo:** {next_step}\n\n"
-        "---\n\n"
-    )
+    entry = [
+        f"## {now:%d/%m/%Y} — Início às {now:%H:%M}",
+        "",
+        f"**Atividade:** {activity_type}",
+        "",
+    ]
+
+    if details:
+        entry.extend([f"**O que será feito:** {details}", ""])
+
+    entry.extend(["---", ""])
 
     with file_path.open("a", encoding="utf-8") as journal_file:
-        journal_file.write(entry)
+        journal_file.write("\n".join(entry) + "\n")
 
-    print(f"Entrada registrada em {file_path}")
+    commit_title = f"{now:%d/%m/%Y %H:%M} — {activity_type}"
+    set_github_output("commit_title", commit_title)
+    print(f"Atividade registrada em {file_path}: {commit_title}")
 
 
 if __name__ == "__main__":
