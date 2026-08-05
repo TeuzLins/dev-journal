@@ -1,30 +1,33 @@
-name: Registrar atividade no Dev Journal
+name: Registrar início de atividade
 
 on:
   workflow_dispatch:
     inputs:
-      topic:
-        description: "Assunto estudado ou trabalhado"
+      activity_type:
+        description: "O que você vai fazer hoje?"
         required: true
-        type: string
-      summary:
-        description: "O que foi feito"
-        required: true
-        type: string
-      learning:
-        description: "Principal aprendizado"
-        required: true
-        type: string
-      next_step:
-        description: "Próximo passo"
+        type: choice
+        options:
+          - Estudar
+          - Programar
+          - Estudar e programar
+          - Trabalhar em uma API
+          - Desenvolver projeto pessoal
+          - Outra atividade
+      details:
+        description: "Em que você vai trabalhar? (opcional)"
         required: false
         type: string
 
 permissions:
   contents: write
 
+concurrency:
+  group: dev-journal-register
+  cancel-in-progress: false
+
 jobs:
-  register-entry:
+  register-activity:
     runs-on: ubuntu-latest
 
     steps:
@@ -36,18 +39,19 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Gerar entrada
+      - name: Registrar data e horário de Brasília
+        id: journal
         env:
-          TOPIC: ${{ inputs.topic }}
-          SUMMARY: ${{ inputs.summary }}
-          LEARNING: ${{ inputs.learning }}
-          NEXT_STEP: ${{ inputs.next_step }}
+          ACTIVITY_TYPE: ${{ inputs.activity_type }}
+          DETAILS: ${{ inputs.details }}
         run: python scripts/add_entry.py
 
-      - name: Salvar entrada no repositório
+      - name: Criar commit da atividade
+        env:
+          COMMIT_TITLE: ${{ steps.journal.outputs.commit_title }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "TeuzLins"
+          git config user.email "163695559+TeuzLins@users.noreply.github.com"
           git add journal/
 
           if git diff --cached --quiet; then
@@ -55,5 +59,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "docs(journal): registrar atividade de desenvolvimento"
+          git commit -m "chore(journal): ${COMMIT_TITLE}"
           git push
