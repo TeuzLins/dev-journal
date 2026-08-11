@@ -11,8 +11,17 @@ on:
           - Estudar
           - Programar
           - Estudar e programar
+          - Trabalhar
+          - Trabalhar e estudar
+          - Participar de aula na faculdade
+          - Realizar atividade acadêmica
           - Trabalhar em uma API
           - Desenvolver projeto pessoal
+          - Corrigir bugs
+          - Criar testes
+          - Documentar projeto
+          - Revisar código
+          - Atualizar portfólio ou GitHub
           - Outra atividade
       details:
         description: "Em que você vai trabalhar? (opcional)"
