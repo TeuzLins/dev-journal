@@ -33,6 +33,7 @@ def set_github_output(name: str, value: str) -> None:
 def main() -> None:
     activity_type = single_line(required_env("ACTIVITY_TYPE"))
     details = single_line(os.getenv("DETAILS", ""))
+    class_study = single_line(os.getenv("CLASS_STUDY", ""))
 
     now = datetime.now(BRASILIA)
     journal_dir = Path("journal")
@@ -54,6 +55,12 @@ def main() -> None:
 
     if details:
         entry.extend([f"**O que será feito:** {details}", ""])
+
+    if class_study:
+        entry.extend([
+            f"**O que estudou na aula da faculdade:** {class_study}",
+            "",
+        ])
 
     entry.extend(["---", ""])
 
