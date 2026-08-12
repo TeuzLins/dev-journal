@@ -27,6 +27,10 @@ on:
         description: "Em que você vai trabalhar? (opcional)"
         required: false
         type: string
+      class_study:
+        description: "O que estudou na aula da faculdade hoje? (opcional)"
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -53,6 +57,7 @@ jobs:
         env:
           ACTIVITY_TYPE: ${{ inputs.activity_type }}
           DETAILS: ${{ inputs.details }}
+          CLASS_STUDY: ${{ inputs.class_study }}
         run: python scripts/add_entry.py
 
       - name: Criar commit da atividade
